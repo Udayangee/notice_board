@@ -1,4 +1,4 @@
-body{
+ body{
     margin:0;
     padding:0;
     font-family:montserrat;
@@ -7,7 +7,8 @@ body{
     overflow:hidden;
 }
 
-.center{
+.login_center{
+    
     position: absolute;
     top:50%;
     left:50%;
@@ -17,24 +18,24 @@ body{
     border-radius:10px;
 }
 
-.center h1{
+.login_center h1{
     text-align:center;
     padding:0 0 20px 0;
     border-bottom:1px solid silver;
 }
 
-.center form{
+.login_center form{
 padding: 0 40px;
 box-sizing: border-box;
 }
 
-form .txt_field{
+form .login_txt_field{
 position:relative;
 border-bottom:2px solid #adadad;
 margin:30px 0;
 }
 
-.txt_field input{
+.login_txt_field input{
 width:100%;
 padding:0 5px;
 height:40px;
@@ -44,7 +45,7 @@ background:none;
 outline:none;
 }
 
-.txt_field label{
+.login_txt_field label{
 position:absolute;
 top:50%;
 left:5px;
@@ -55,7 +56,7 @@ pointer-events:none;
 transition:.5s;
 }
 
-.txt_field span::before{
+.login_txt_field span::before{
     content:'';
     position: absolute;
     top: 40px;
@@ -66,17 +67,17 @@ transition:.5s;
     
     }
 
-.txt_field input:focus ~ label,
+.login_txt_field input:focus ~ label,
 
-.txt_field input:valid ~ label{
+.login_txt_field input:valid ~ label{
 
 top:-5px;
 color: #2691d9;
 }
 
-.txt_field input:focus ~ span::before,
+.login_txt_field input:focus ~ span::before,
 
-.txt_field input:valid ~ span::before{
+.login_txt_field input:valid ~ span::before{
 
 width:100%;
 }

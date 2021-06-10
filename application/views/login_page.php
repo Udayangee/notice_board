@@ -1,17 +1,19 @@
 <?php include 'partials/header.php'?>
-	
 
-	<div class="center">
+	<h2>Login Page</h2>
+
+	<div class="login_center">
 		
 		
-			<form method="post">
-				<div class="txt_field">
+		<h1>Login</h1>
+					<form method="post">
+				<div class="login_txt_field">
 					<input type="text" required>
 					<span></span>
 						<label>UserName</label>
 				</div>
 
-				<div class="txt_field">
+				<div class="login_txt_field">
 					<input type="password" required>
 					<span></span>
 						<label>Password</label>
@@ -30,7 +32,7 @@
 	
 	
 	</div>
-	
+
 <?php include 'partials/footer.php'?>
 
 
