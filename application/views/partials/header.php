@@ -11,6 +11,7 @@
 
 </head>
 <body>
+
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,6 +32,7 @@
         <li><a href="#">Link</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        
         <li><a href="<?php echo base_url ('index.php/Home/login')?>">Login</a></li>
         <li><a href="<?php echo base_url('index.php/Home/register')?>">Register</a></li>
        
