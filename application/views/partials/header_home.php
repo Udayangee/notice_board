@@ -7,7 +7,7 @@
 	<title>Online_Notice_Board</title>
 	
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?php echo base_url('assests/css/login_page.css')?>">
+  
 
 </head>
 <body>
@@ -27,10 +27,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
+      
       <ul class="nav navbar-nav navbar-right">
         
         <li><a href="<?php echo base_url ('index.php/Home/login')?>">Login</a></li>
