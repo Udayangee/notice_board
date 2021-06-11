@@ -1,3 +1,3 @@
 <?php include 'partials/header_register.php'?>
-	<h2>Register page</h2>
+<h1>Regitration form</h1>
 <?php include 'partials/footer.php'?>
