@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
 
-<?php include 'includes/header_adlogin.php'?>
+
 
 <div class="adlogin_center">
 		
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 	
 	</div>
-<?php include 'includes/footer.php'?>
+
 	
 
 

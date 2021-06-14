@@ -20,13 +20,13 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('login_page');
+		$this->template->view_userlogin('login_page');
 	}
 
 	
 
 	public function register()
 	{
-		$this->load->view('register_page');
+		$this->template->view_user_registration('register_page');
 	}
 }

@@ -1,4 +1,4 @@
-<?php include 'partials/header_login.php'?>
+
 
 	<div class="login_center">
 		
@@ -21,7 +21,7 @@
 					<input type="submit" value="Login">
 						<div class="signup_link">
 							Don't have an account?
-								<a href="<?php echo base_url('index.php/Home/register')?>">Register</a>
+								<a href="<?php echo base_url('login/register')?>">Register</a>
 						</div>
 		
 		
@@ -31,6 +31,6 @@
 	
 	</div>
 
-<?php include 'partials/footer.php'?>
+
 
 

@@ -11,7 +11,7 @@ class Admin extends CI_Controller {
 
 	 function index()
 	{
-		$this->load->view('administrators/admin_login');
+		$this->template->view_adminlogin('administrators/admin_login');
 	}
 
 	function login_validation()

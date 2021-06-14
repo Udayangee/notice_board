@@ -30,8 +30,8 @@
      
       <ul class="nav navbar-nav navbar-right">
         
-        <li><a href="<?php echo base_url ('index.php/Home/login')?>">Login</a></li>
-        <li><a href="<?php echo base_url('index.php/Home/register')?>">Register</a></li>
+        <li><a href="<?php echo base_url ('login/index')?>">Login</a></li>
+        <li><a href="<?php echo base_url('login/register')?>">Register</a></li>
        
       </ul>
     </div><!-- /.navbar-collapse -->
