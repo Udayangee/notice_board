@@ -27,4 +27,11 @@
             $this->ci->load->view('templates/partials/footer');
         }
 
+        function view_super_admindashboard($view_name,$data){
+            $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+            $this->ci->load->view($view_name);
+            $this->ci->load->view('templates/includes/dashboard_footer');
+
+        }
+
     }

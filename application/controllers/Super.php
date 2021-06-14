@@ -7,7 +7,7 @@ class Super extends CI_Controller{
 
         parent::_construct();
         if($this->session->userdata('logged_in') !== TRUE){
-            redirect('Admin/index');
+            redirect('admin/index');
         }
     }
 
@@ -21,12 +21,20 @@ class Super extends CI_Controller{
        //calling relevent admins
        
             if($sess_Id['faculty_Id'] == '1'){
-            $this->load->view('administrators/super_admin_view');
+            $this->template->view_super_admindashboard('administrators/super_admin_view',$sess_Id);
 
         }else{
             echo "Access Denied!";
         }
     }
+
+
+    function logout(){
+		
+		$this->session->unset_userdata('session_data');
+		redirect('admin/index');
+	}
+	
 }
 
 ?>

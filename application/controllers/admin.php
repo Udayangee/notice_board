@@ -28,15 +28,15 @@ class Admin extends CI_Controller {
 			if ($check->num_rows() == TRUE) {
 
 				$data = $check->row_array();
-				$fname = $data['user_firstname'];
-				$lname = $data['user_lastname'];
-				$email = $data['user_email'];
+				$fname = $data['admin_firstname'];
+				$lname = $data['admin_lastname'];
+				$email = $data['admin_email'];
 				$faculty = $data['faculty_Id'];
 
 				$session_data = array(
-					'user_firstname'  => $fname,
-					'user_lastname'  => $lname,
-					'user_email'  => $this->input->post('email'),
+					'admin_firstname'  => $fname,
+					'admin_lastname'  => $lname,
+					'admin_email'  => $this->input->post('email'),
 					'faculty_Id'     => $faculty,
 					'logged_in' => TRUE
 				);
@@ -64,7 +64,6 @@ class Admin extends CI_Controller {
 		
 	}
 
-	
 	
 	
 }
