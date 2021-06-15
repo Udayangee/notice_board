@@ -34,4 +34,55 @@
 
         }
 
+        //super admin crud view
+                    function view_create_notice($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+            
+                    }
+
+                    function view_delete_notice($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+                    }
+
+                    function view_modify_notice($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+                    }
+
+                    function view_manage_student($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+                    }
+
+                    function view_feedback($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+                    }
+
+                    function view_manage_admins($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+                    }
+
+                    function view_system_maintenance($view_name,$data)
+                    {
+                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
+                        $this->ci->load->view($view_name);
+                        $this->ci->load->view('templates/includes/dashboard_footer');
+                    }
+
     }
