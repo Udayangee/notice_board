@@ -10,20 +10,15 @@
                 <form actio="#" id="reg_form">
                     <div id="reg_entno" class="reg_info" method="post">
                         <label for="entrollment_no" class="reg_label">Entrollment Number :</label>
-                        <input type="text" placeholder="UWU/XXX/XX/XXX" quid><br><br>
+                        <input type="text" placeholder="UWUCST18070" quid><br><br>
                     </div>
                     <div id="reg_name_in" class="reg_info" >
-                        <label for="name_initials" class="reg_label">Name with initials :</label>
-                        <input type="text" placeholder="A.S.PERA" quid><br><br>
+                        <label for="name_initials" class="reg_label">First Name :</label>
+                        <input type="text" placeholder="Amasha" quid><br><br>
                     </div>
                     <div id="reg_name_full" class="reg_info">
-                        <label for="full_name" class="reg_label"> Full Name :</label>
-                        <input type="text" placeholder="AMA SHALINI PERA" quid><br><br>
-                    </div>
-                    <div id="reg_gender" class="reg_info">
-                        <label for="gender" class="reg_label">Gender :</label>
-                        <input type="radio" name="gender" value="male">Male<br>
-                        <input type="radio" name="gender" value="female">Female<br><br>
+                        <label for="full_name" class="reg_label"> Last Name :</label>
+                        <input type="text" placeholder="Perera" quid><br><br>
                     </div>
                     <div id="reg_dob" class="reg_info">
                         <label for="dob" class="reg_label">Date of Birth</label>
@@ -42,10 +37,6 @@
                         <label for="email" class="reg_label">E-mail :</label>
                         <input type="email" placeholder="xxxxxxxx@std.uwu.ac.lk" quid><br><br>
                     </div>
-                    <div id="reg_uname" class="reg_info">
-                        <label for="uname" class="reg_label">User Name :</label>
-                        <input type="text" placeholder="ans18001" quid><br><br>
-                    </div>
                     <div id="reg_pwd" class="reg_info">
                         <label for="password" class="reg_label">Password :</label>
                         <input type="" quid><br><br>
@@ -58,10 +49,6 @@
                     <div id="reg_pno" class="reg_info">
                         <label for="phone_no"class="reg_label" >Phone Number :</label>
                         <input type="tel" quid><br><br>
-                    </div>
-                    <div id="reg_adress" class="reg_info">
-                        <label for="adress" class="reg_label">Adress :</label>
-                        <textarea input type="text" placeholder="PASSARA ROAD, BADULLA" ></textarea><br><br>
                     </div>
                     <div id="reg_submit">
                         <input type="submit" value="Submit">
