@@ -1,7 +1,7 @@
 
     <head>
-         <meta charset="UTF-8">
-         <link rel="stylesheet" href="">
+       <meta charset="UTF-8">
+        <link rel="stylesheet" href="">
     </head>
     <body>
         <div class="container">
@@ -36,24 +36,6 @@
                             <option>Faculty of Applied Sciences</option>
                             <option>Faculty of Management</option>
                             <option>Faculty of Technological Studies</option>
-                        </select><br><br>
-                    </div>
-                    <div id="reg_degree" class="reg_info">
-                        <label for="degree" class="reg_label">Degree Program :</label>
-                        <select quid>
-                            <option>Animal Science Technology Degree Program</option>
-                            <option>Aquatic sources and Technology Degree Program</option>
-                            <option>Export Agricultur Degree Program</option>
-                            <option>Tea Technology and Value Addition Degree Program</option>
-                            <option>Palm and Latex Technology Degree Program</option>
-                            <option>Computer science and Technology Degree Program</option>
-                            <option>Industrial Information Technology Degree Program</option>
-                            <option>Science and Technology Degree Program</option>
-                            <option>Mineral sources and Technology Degree Program</option>
-                            <option>Entepinurship and management Degree Prograam</option>
-                            <option>Hospitality Tourism and events Management Degree Program</option>
-                            <option>Biosystems Technology degree Program</option>
-                            <option>Engineering Technology Degree program</option>
                         </select><br><br>
                     </div>
                     <div id="reg_email" class="reg_info">
