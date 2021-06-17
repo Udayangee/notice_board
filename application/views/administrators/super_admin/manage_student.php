@@ -11,14 +11,15 @@
                         </div><br><br>
                         <table id="sa_ms_table" border="2">
                                                
-                            <thead>
+                            <thead id="sa_ms_th">
                                 <th>Entrollment Number</th>
                                 <th>Name</th>
                                 <th>Faculty</th>
                                 <th>Manage</th>
+                                
                             </thead>
 
-                            <tbody>
+                            <tbody id="sa_ms_tb">
                                 <!--fetch db-->
                                 <td></td>
                                 <td></td>
