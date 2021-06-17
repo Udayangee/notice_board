@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class User_login_model extends CI_Model{
 
-    function can_login($username,$password){
+    public function can_login($username,$password){
        $this->db->select('*');
        $this->db->from('no_user');
         $this->db->where('enrollment_Id',$username);
@@ -10,9 +10,12 @@ class User_login_model extends CI_Model{
 
         $query = $this->db->get();
 
-        return $query;
-
-        
-
+        return $query;   
     }
+
+    public function insert_data($data)
+    {
+        $this->db->insert("no_user",$data);
+    }
+
 }
