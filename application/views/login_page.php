@@ -5,11 +5,7 @@
 		
 		<h1>Login</h1>
 		<?php echo $this->session->flashdata("error"); ?>
-		<?php 
-		if($this->uri->segment(2)=="inserted"){
-			echo "<h3>Data inserted successfully</h3>";
-		}
-		?>
+
 		<form action="<?php echo site_url('login/login_validation')?>" method="POST">
 				<div class="login_txt_field">
 					<input type="text" name="enroll" required>

@@ -18,6 +18,15 @@ class Login extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+			parent::__construct();
+			// Your own constructor code
+			$this->load->model('User_login_model');
+	}
+
+
+
 	public function index()
 	{
 		$this->template->view_userlogin('login_page');
@@ -40,7 +49,7 @@ class Login extends CI_Controller {
 			$username = $this->input->post('enroll');
 			$password = $this->input->post('password');
 
-			$this->load->model('User_login_model');
+			
 			$check = $this->User_login_model->can_login($username,$password);
 			if ($check->num_rows() == TRUE) {
 
@@ -84,18 +93,12 @@ class Login extends CI_Controller {
 	}
 
 	public function register_validation(){
-		$this->form_validation->set_rules('enroll','enrollment_Id','required|is_unique[no_user.enrollment_Id]');
-		$this->form_validation->set_rules('fname','First name','required|alpha');
-		$this->form_validation->set_rules('lname','last name','required|alpha');
-		$this->form_validation->set_rules('dob','date of birth','required');
-		$this->form_validation->set_rules('faculty_id','faculty_Id','required');
-		$this->form_validation->set_rules('email','Email','required|valid_email');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('passwordagain', 'Password Confirmation', 'trim|required|matches[password]');	
-		$this->form_validation->set_rules('contact','Phone number','required');
 
-		if($this->form_validation->run()){
-			$this->load->model("User_login_model");
+		// cheack enroll id exsist
+		$enrollid  = $this->User_login_model->check_enroll_exsit($this->input->post("enroll"));
+
+		if($enrollid == false){
+
 			$data = array(
 				"enrollment_Id" => $this->input->post("enroll"),
 				"user_firstname" => $this->input->post("fname"),
@@ -108,14 +111,18 @@ class Login extends CI_Controller {
 				"faculty_Id" => $this->input->post("faculty_id")
 			);
 
-			$this->User_login_model->insert_data($data);
-			redirect(base_url()."login/inserted");
+			$insert_id = $this->User_login_model->insert_data($data);
+			echo '{"insert_id":'.$insert_id.'}';
+
 		}else{
-			$this->register();
+			header("HTTP/1.1 400 Not Found");
+			echo '{"enroll_id":"false"}';
 		}
 	}
 
+
+
 	public function inserted(){
-		$this->index();
+		$this->register();
 	}
 }
