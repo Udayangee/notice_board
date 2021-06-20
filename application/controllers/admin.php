@@ -3,17 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-	public function _construct()
+	private $log_user;
+
+	public function __construct()
 	{
-		parent::_construct();
-		
+			parent::__construct();
+			// Your own constructor code
+			$this->load->model('AdminModel');
 	}
+
 
 	 function index()
 	{
-		$this->template->view_adminlogin('administrators/admin_login');
+		$this->template->layout_simple('admin/admin_login');
 	}
 
+	// admin login
 	function login_validation()
 	{
 		$this->form_validation->set_rules('email','Email','required');
@@ -22,50 +27,95 @@ class Admin extends CI_Controller {
 		if($this->form_validation->run()){
 			$username = $this->input->post('email');
 			$password = $this->input->post('password');
+	
+			$db_user = $this->AdminModel->can_login($username,$password);
 
-			$this->load->model('Admin_login_model');
-			$check = $this->Admin_login_model->can_login($username,$password);
-			if ($check->num_rows() == TRUE) {
+			$this->session->set_userdata('log_user',$db_user);
+			$log_user = $this->session->userdata('log_user');
 
-				$data = $check->row_array();
-				$fname = $data['admin_firstname'];
-				$lname = $data['admin_lastname'];
-				$email = $data['admin_email'];
-				$faculty = $data['faculty_Id'];
-				$status = $data['admin_status'];
-
-				$session_data = array(
-					'admin_firstname'  => $fname,
-					'admin_lastname'  => $lname,
-					'admin_email'  => $this->input->post('email'),
-					'faculty_Id'     => $faculty,
-					'admin_status' => $status,
-					'logged_in' => TRUE
-				);
-
-					$this->session->set_userdata('session_data',$session_data);
-				$session_data= $this->session->userdata('session_data');
-
-							if($faculty === '1' && $status === 'active'){
-								redirect('super');
-							}else{
-								redirect('union');
-							}
-					
-				}else{
-					$this->session->set_flashdata('error','Invalid Username and password');
-					redirect('admin/index');
-				}
-
-
+			if ( $log_user != NULL) {
+				redirect('admin/dashboard');
+			}else{
+				$this->session->unset_userdata('log_user');
+				$this->session->set_flashdata('error','Invalid Username and password');
+				redirect('admin/index');
+			}
+			
 		}else{
 			$this->index();
 		}
+	}
 
+	// dashborad functions
+	public function dashboard(){
+		
+		$log_user = $this->session->userdata('log_user');
 
+		if($log_user != NULL){
+
+			$data['log_user'] = $log_user;
+
+			$this->template->layout_admin('admin/dashboard',$data);
+
+		}else{
+			redirect('admin/index');
+		}
 		
 	}
 
-	
+	// logout
+	public function logout(){
+		$this->session->unset_userdata('log_user');
+		redirect('admin/index');
+	}
+
+	// New Notice
+	public function newnotice(){
+		
+		$log_user = $this->session->userdata('log_user');
+
+		if($log_user != NULL){
+
+			//permisstion 
+			$role_id = $log_user->faculty_Id;
+
+			if($role_id == 1 OR $role_id == 2){
+
+				$data['log_user'] = $log_user;
+				$this->template->layout_admin('admin/new_notice',$data);
+
+			}else{
+				redirect('admin/dashboard');
+			}
+
+		}else{
+			redirect('admin/index');
+		}
+		
+	}
+
+	// Notice List
+	public function noticelist(){
+		
+		$log_user = $this->session->userdata('log_user');
+		if($log_user != NULL){
+
+			$data['log_user'] = $log_user;
+
+			$this->template->layout_admin('admin/notice_list',$data);
+			
+		}else{
+			redirect('admin/index');
+		}
+		
+	}
+	// get json respond
+	public function get_noticelist(){
+		// POST data
+		$postData = $this->input->post();
+		// Get data
+		$data = $this->AdminModel->getDataNotices($postData);
+		echo json_encode($data);
+	}
 	
 }

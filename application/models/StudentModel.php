@@ -1,6 +1,6 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-class User_login_model extends CI_Model{
+class StudentModel extends CI_Model{
 
     public function can_login($username,$password){
         $this->db->select('*');
@@ -9,8 +9,10 @@ class User_login_model extends CI_Model{
         $this->db->where('user_password',$password);
 
         $query = $this->db->get();
+        $result = $query->result();
 
-        return $query;   
+        return $result[0];
+   
     }
 
     public function insert_data($data)
@@ -29,5 +31,14 @@ class User_login_model extends CI_Model{
         }
         return false;
     }
+
+    public function get_all_notices($facultyId){
+
+        $query = $this->db->query("SELECT * FROM no_notice_all_view WHERE faculty_id = 1 OR faculty_id = 2 OR faculty_id = $facultyId");
+        $result = $query->result();
+        return $result;
+   
+    }
+
 
 }

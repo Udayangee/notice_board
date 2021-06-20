@@ -9,87 +9,41 @@
             $this->ci =& get_instance();
         }
 
-        function view_userlogin($view_name, $data = null) {
-            $this->ci->load->view('templates/partials/header_login');
+        /** adding Main layouts */
+
+        // User Login, registration , admin login
+
+        function layout_simple($view_name, $data = null) {
+
+            $data['cssfile_name'] = 'assests/css/'.$view_name.'.css';
+            $data['jsfile_name'] = 'assests/js/'.$view_name.'.js';
+
+            $this->ci->load->view('templates/simple_header',$data);
             $this->ci->load->view($view_name);
-            $this->ci->load->view('templates/partials/footer');
+            $this->ci->load->view('templates/simple_footer');
         }
 
-        function view_adminlogin($view_name, $data = null) {
-            $this->ci->load->view('templates/includes/header_adlogin');
+        // User dashbbord 
+        function layout_student($view_name, $data = null) {
+
+            $data['cssfile_name'] = 'assests/css/'.$view_name.'.css';
+
+            $this->ci->load->view('templates/student_header',$data);
+            $this->ci->load->view('templates/student_navbar');
             $this->ci->load->view($view_name);
-            $this->ci->load->view('templates/includes/footer');
+            $this->ci->load->view('templates/student_footer');
         }
 
-        function view_user_registration($view_name, $data=null) {
-            $this->ci->load->view('templates/partials/header_register');
+        //admin dashbord
+        function layout_admin($view_name, $data = null) {
+
+            $data['cssfile_name'] = 'assests/css/'.$view_name.'.css';
+            $data['jsfile_name'] = 'assests/js/'.$view_name.'.js';
+
+            $this->ci->load->view('templates/admin_header',$data);
+            $this->ci->load->view('templates/admin_navbar');
             $this->ci->load->view($view_name);
-            $this->ci->load->view('templates/partials/footer');
+            $this->ci->load->view('templates/admin_footer');
         }
-
-        //calling applied user dashboard
-        function view_applied_user_dashboard($view_name,$data)
-        {
-            $this->ci->load->view($view_name);
-        }
-
-        //calling super admin dashboard
-        function view_super_admindashboard($view_name,$data){
-            $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-            $this->ci->load->view($view_name);
-            $this->ci->load->view('templates/includes/dashboard_footer');
-
-        }
-
-        //super admin crud view
-                    function view_create_notice($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-            
-                    }
-
-                    function view_delete_notice($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-                    }
-
-                    function view_modify_notice($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-                    }
-
-                    function view_manage_student($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-                    }
-
-                    function view_feedback($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-                    }
-
-                    function view_manage_admins($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-                    }
-
-                    function view_system_maintenance($view_name,$data)
-                    {
-                        $this->ci->load->view('templates/includes/superadmin_header_sidebar');
-                        $this->ci->load->view($view_name);
-                        $this->ci->load->view('templates/includes/dashboard_footer');
-                    }
 
     }
