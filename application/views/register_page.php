@@ -29,7 +29,7 @@
                     </div>
                     <div id="reg_lname" class="reg_info">
                         <label for="full_name" class="reg_label"> Last Name :</label>
-                        <input type="text" id="l_name" placeholder="Perera"  name="lname" required>
+                        <input type="text" id="l_name" placeholder="Perera"  name="lname" >
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
