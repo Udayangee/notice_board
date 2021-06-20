@@ -32,19 +32,21 @@ class Admin extends CI_Controller {
 				$lname = $data['admin_lastname'];
 				$email = $data['admin_email'];
 				$faculty = $data['faculty_Id'];
+				$status = $data['admin_status'];
 
 				$session_data = array(
 					'admin_firstname'  => $fname,
 					'admin_lastname'  => $lname,
 					'admin_email'  => $this->input->post('email'),
 					'faculty_Id'     => $faculty,
+					'admin_status' => $status,
 					'logged_in' => TRUE
 				);
 
 					$this->session->set_userdata('session_data',$session_data);
 				$session_data= $this->session->userdata('session_data');
 
-							if($faculty === '1'){
+							if($faculty === '1' && $status === 'active'){
 								redirect('super');
 							}else{
 								redirect('union');

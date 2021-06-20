@@ -20,7 +20,7 @@ class Super extends CI_Controller{
 
        //calling relevent admins
        
-            if($sess_Id['faculty_Id'] == '1'){
+            if($sess_Id['faculty_Id'] == '1' && $sess_Id['admin_status']=='active'){
             $this->template->view_super_admindashboard('administrators/super_admin_view',$sess_Id);
 
         }else{

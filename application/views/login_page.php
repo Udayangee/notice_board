@@ -4,15 +4,17 @@
 		
 		
 		<h1>Login</h1>
-					<form method="post">
+		<?php echo $this->session->flashdata("error"); ?>
+
+		<form action="<?php echo site_url('login/login_validation')?>" method="POST">
 				<div class="login_txt_field">
-					<input type="text" required>
+					<input type="text" name="enroll" required>
 					<span></span>
 						<label>UserName</label>
 				</div>
 
 				<div class="login_txt_field">
-					<input type="password" required>
+					<input type="password" name="password" required>
 					<span></span>
 						<label>Password</label>
 				</div>
