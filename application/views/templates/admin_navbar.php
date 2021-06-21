@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="<?php echo base_url('admin/dashboard')?>"><i class="fa fa-fw fa fa-question-circle"></i>HOME</a>
+                    <a href="<?php echo base_url('admin/dashboard')?>"><i class="fa fa-fw fa fa-home"></i>HOME</a>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-paper-plane-o"></i> NOTICE <i class="fa fa-fw fa-angle-down pull-right"></i></a>
@@ -38,18 +38,16 @@
                         <li><a href="<?php echo base_url('admin/noticelist')?>"><i class="fa fa-angle-double-right"></i> Notice List</a></li>
                     </ul>
                 </li>
+
                 <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> STUDENT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-group (alias)"></i> STUDENT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="<?php echo base_url('super/manage_student')?>"><i class="fa fa-angle-double-right"></i> MANAGE </a></li>
-                        <li><a href="<?php echo base_url('super/feedback')?>"><i class="fa fa-angle-double-right"></i> FEEDBACK</a></li>
+                        <li><a href="<?php echo base_url('admin/managestudent')?>"><i class="fa fa-angle-double-right"></i> MANAGE </a></li>
+                        <li><a href="<?php echo base_url('admin/studentfeedback')?>"><i class="fa fa-angle-double-right"></i> FEEDBACK</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('super/manage_admins')?>"><i class="fa fa-fw fa-user-plus"></i>  MANAGE ADMINS</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('super/system_maintenance')?>"><i class="fa fa-fw fa fa-question-circle"></i> SYSTEM MAINTENANCE</a>
+                    <a href="<?php echo base_url('admin/manageadmin')?>"><i class="fa fa-fw fa-user-plus"></i>  MANAGE ADMINS</a>
                 </li>
             </ul>
         </div>

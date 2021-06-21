@@ -76,17 +76,10 @@ class Admin extends CI_Controller {
 
 		if($log_user != NULL){
 
-			//permisstion 
-			$role_id = $log_user->faculty_Id;
-
-			if($role_id == 1 OR $role_id == 2){
+			//there is no any permission this load evey admin
 
 				$data['log_user'] = $log_user;
 				$this->template->layout_admin('admin/new_notice',$data);
-
-			}else{
-				redirect('admin/dashboard');
-			}
 
 		}else{
 			redirect('admin/index');
@@ -99,7 +92,7 @@ class Admin extends CI_Controller {
 		
 		$log_user = $this->session->userdata('log_user');
 		if($log_user != NULL){
-
+	//there is no any permission this load evey admin
 			$data['log_user'] = $log_user;
 
 			$this->template->layout_admin('admin/notice_list',$data);
@@ -109,6 +102,76 @@ class Admin extends CI_Controller {
 		}
 		
 	}
+
+
+	//manage students
+	public function managestudent(){
+		
+		$log_user = $this->session->userdata('log_user');
+		if($log_user != NULL){
+
+			//permssion for admin user
+			$role_id = $log_user->faculty_Id;
+			if($role_id == 1 OR $role_id == 3 OR $role_id == 4 OR $role_id == 5 OR $role_id == 6){
+
+				$data['log_user'] = $log_user;
+				$this->template->layout_admin('admin/student_manage',$data);
+
+			}else{
+				redirect('admin/dashboard');
+			}
+			
+		}else{
+			redirect('admin/index');
+		}
+		
+	}
+
+	//student feedback
+	public function studentfeedback(){
+		
+		$log_user = $this->session->userdata('log_user');
+		if($log_user != NULL){
+
+			//permssion for student feedback
+			$role_id = $log_user->faculty_Id;
+			if($role_id == 1 OR $role_id == 3 OR $role_id == 4 OR $role_id == 5 OR $role_id == 6){
+
+				$data['log_user'] = $log_user;
+				$this->template->layout_admin('admin/student_feedback',$data);
+
+			}else{
+				redirect('admin/dashboard');
+			}
+			
+		}else{
+			redirect('admin/index');
+		}
+		
+	}
+
+	//manage admins
+	public function manageadmin(){
+		
+		$log_user = $this->session->userdata('log_user');
+		if($log_user != NULL){
+
+			$role_id = $log_user->faculty_Id;
+			if($role_id == 1){
+
+				$data['log_user'] = $log_user;
+				$this->template->layout_admin('admin/manage_admin',$data);
+
+			}else{
+				redirect('admin/dashboard');
+			}
+			
+		}else{
+			redirect('admin/index');
+		}
+		
+	}
+
 	// get json respond
 	public function get_noticelist(){
 		// POST data

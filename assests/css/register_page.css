@@ -55,12 +55,12 @@ body{
     visibility: hidden;
 } 
 
-.reg_info.success i.fa-check-circle{
+.reg_info.success i.fa.fa-check-square{
     color:#2ecc71;
     visibility: visible;
 }
 
-.reg_info.error i.fa-exclamation-circle{
+.reg_info.error i.fa.fa-info-circle{
     color:#e74c3c;
     visibility: visible;
 }
