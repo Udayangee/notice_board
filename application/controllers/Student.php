@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Student extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,24 +22,23 @@ class Login extends CI_Controller {
 	{
 			parent::__construct();
 			// Your own constructor code
-			$this->load->model('User_login_model');
+			$this->load->model('StudentModel');
 	}
 
 
 
 	public function index()
 	{
-		$this->template->view_userlogin('login_page');
+		$this->template->layout_simple('login_page');
 	}
 
 	
 	public function register()
 	{
-
-		$this->template->view_user_registration('register_page');
+		$this->template->layout_simple('register_page');
 	}
 
-
+	// login validation
 	public function login_validation()
 	{
 		$this->form_validation->set_rules('enroll','Enroll','required');
@@ -49,41 +48,18 @@ class Login extends CI_Controller {
 			$username = $this->input->post('enroll');
 			$password = $this->input->post('password');
 
-			
-			$check = $this->User_login_model->can_login($username,$password);
-			if ($check->num_rows() == TRUE) {
+			$db_user = $this->StudentModel->can_login($username,$password);
 
-				$data = $check->row_array();
-				$fname = $data['user_firstname'];
-				$lname = $data['user_lastname'];
-				$email = $data['user_email'];
-				$faculty = $data['faculty_Id'];
-				$status = $data['user_status'];
-				$enroll = $data['enrollment_Id'];
+			$this->session->set_userdata('log_user',$db_user);
+			$log_user = $this->session->userdata('log_user');
 
-				$session_data = array(
-					'user_firstname'  => $fname,
-					'user_lastname'  => $lname,
-					'user_email'  => $email,
-					'faculty_Id'     => $faculty,
-					'user_status' => $status,
-					'enrollment_Id' => $this->input->post('enroll'),
-					'logged_in' => TRUE
-				);
-
-					$this->session->set_userdata('session_data',$session_data);
-				$session_data= $this->session->userdata('session_data');
-
-							if($faculty === '3' && $status === 'active'){
-								redirect('user/applied');
-							}else{
-								redirect('user/agri');
-							}
-					
-				}else{
-					$this->session->set_flashdata('error','Invalid Username and password');
-					redirect('login/index');
-				}
+			if ( $log_user != NULL) {
+				redirect('student/dashboard');
+			}else{
+				$this->session->unset_userdata('log_user');
+				$this->session->set_flashdata('error','Invalid Username and password');
+				redirect('student/index');
+			}
 
 
 		}else{
@@ -92,10 +68,11 @@ class Login extends CI_Controller {
 		
 	}
 
+	//user Regisration
 	public function register_validation(){
 
 		// cheack enroll id exsist
-		$enrollid  = $this->User_login_model->check_enroll_exsit($this->input->post("enroll"));
+		$enrollid  = $this->StudentModel->check_enroll_exsit($this->input->post("enroll"));
 
 		if($enrollid == false){
 
@@ -111,7 +88,7 @@ class Login extends CI_Controller {
 				"faculty_Id" => $this->input->post("faculty_id")
 			);
 
-			$insert_id = $this->User_login_model->insert_data($data);
+			$insert_id = $this->StudentModel->insert_data($data);
 			echo '{"insert_id":'.$insert_id.'}';
 
 		}else{
@@ -120,9 +97,34 @@ class Login extends CI_Controller {
 		}
 	}
 
+	// dashborad functions
+	public function dashboard(){
+		
+		$log_user = $this->session->userdata('log_user');
 
+		if($log_user != NULL){
 
-	public function inserted(){
-		$this->register();
+			$data['log_user'] = $log_user;
+
+			//generate notification
+			$notices = $this->StudentModel->get_all_notices($log_user->faculty_Id);
+			$data['notices'] = $notices;
+			
+
+			$this->template->layout_student('dashboard',$data);
+
+		}else{
+			redirect('student/index');
+		}
+		
 	}
+
+	// logout
+	public function logout(){
+		$this->session->unset_userdata('log_user');
+		redirect('student/index');
+	}
+
+
+
 }

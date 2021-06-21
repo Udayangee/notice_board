@@ -7,11 +7,20 @@
 	<title>Online_Notice_Board</title>
 	
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?php echo base_url('assests/css/login_page.css')?>">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <?php echo '<link rel="stylesheet" href="'.base_url($cssfile_name).'">'; ?>
+
 
 </head>
 <body>
 
+<?php 
+
+$urlsegmants = $this->uri->segment_array();
+if($urlsegmants != null && $urlsegmants[1]=='admin'){
+  // admin menu gose here
+}else{
+?>
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,10 +39,11 @@
      
       <ul class="nav navbar-nav navbar-right">
         
-        <li><a href="<?php echo base_url ('login/index')?>">Login</a></li>
-        <li><a href="<?php echo base_url('login/register')?>">Register</a></li>
+        <li><a href="<?php echo base_url ('student/index')?>">Login</a></li>
+        <li><a href="<?php echo base_url('student/register')?>">Register</a></li>
        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<?php } ?>

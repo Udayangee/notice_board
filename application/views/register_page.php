@@ -2,7 +2,7 @@
     <body>
         <div class="container">
             <div class="regform">
-                <div><h1>Rgistration Form</h1></div>
+                <div><h1>Registration Form</h1></div>
 
                 <?php echo validation_errors(); ?>
                 <?php 
@@ -12,40 +12,40 @@
                 
                     <div id="reg_entno" class="reg_info ">
                         <label for="entrollment_no" class="reg_label">Entrollment Number :</label>
-                        <input type="text" id="enrollment" placeholder="UWUCST18070"  name="enroll"  required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="text" id="enrollment" placeholder="UWUCST18070"  name="enroll"  >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <?php echo form_error('enroll'); ?>
                         <br><br>
                     </div>
                     <div id="reg_fname" class="reg_info"  >
                         <label for="name_initials" class="reg_label">First Name :</label>
-                        <input type="text" id="f_name" placeholder="Amasha" name="fname" required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="text" id="f_name" placeholder="Amasha" name="fname" >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <br><br>
                     </div>
                     <div id="reg_lname" class="reg_info">
                         <label for="full_name" class="reg_label"> Last Name :</label>
                         <input type="text" id="l_name" placeholder="Perera"  name="lname" >
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <br><br>
                     </div>
                     <div id="reg_dob" class="reg_info">
                         <label for="dob" class="reg_label">Date of Birth</label>
-                        <input type="date" id="db" name="dob"  required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="date" id="db" name="dob"  >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <br><br>
                     </div>
                     <div id="reg_faculty" class="reg_info">
                         <label for="faculty" class="reg_label">Faculty :</label>
-                        <select name="faculty_id" id="f_aculty" required>
+                        <select name="faculty_id" id="f_aculty" class="select" >
                             <option value="5" >Faculty of Animal Science and Export Agricultu</option>
                             <option value="3" >Faculty of Applied Sciences</option>
                             <option value="4" >Faculty of Management</option>
@@ -58,34 +58,34 @@
                     </div>
                     <div id="reg_email" class="reg_info">
                         <label for="email" class="reg_label">E-mail :</label>
-                        <input type="email" id="e_mail" placeholder="xxxxxxxx@std.uwu.ac.lk" name="email"  required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="email" id="e_mail" placeholder="xxxxxxxx@std.uwu.ac.lk" name="email"  >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <br><br>
                     </div>
                     <div id="reg_pwd" class="reg_info">
                         <label for="password" class="reg_label">Password :</label>
-                        <input type="password" id="p_word" name="password"  required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="password" id="p_word" name="password"  >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>    
                         <br><br>
                     </div>
                     <div id="reg_conpwd" class="reg_info">
                         <label for="con_password" class="reg_label" >Confirm Password :</label>
-                        <input type="password" id="c_word" name="passwordagain"  required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="password" id="c_word" name="passwordagain"  >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <br><br>
                     </div>
 
                     <div id="reg_pno" class="reg_info">
                         <label for="phone_no"class="reg_label" >Phone Number :</label>
-                        <input type="tel" id="c_tact" name="contact"  required>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
+                        <input type="tel" id="c_tact" name="contact"  >
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>Error message</small>
                         <br><br>
                     </div> 
@@ -93,7 +93,7 @@
             
 
                     <div id="reg_submit" class="reg_info"> 
-                    <button type="submit"  >Submit </button>          
+                    <button type="submit" class="submit"  >Submit </button>          
                     </div>
 
                 
