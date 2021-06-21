@@ -39,16 +39,28 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-group (alias)"></i> STUDENT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-2" class="collapse">
-                        <li><a href="<?php echo base_url('admin/managestudent')?>"><i class="fa fa-angle-double-right"></i> MANAGE </a></li>
-                        <li><a href="<?php echo base_url('admin/studentfeedback')?>"><i class="fa fa-angle-double-right"></i> FEEDBACK</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('admin/manageadmin')?>"><i class="fa fa-fw fa-user-plus"></i>  MANAGE ADMINS</a>
-                </li>
+                <?php 
+                //loding admin view according to the role
+                $data['log_user'] = $log_user;
+                $role_id = $log_user->faculty_Id;
+               if($role_id == 1 OR $role_id == 3 OR $role_id == 4 OR $role_id == 5 OR $role_id == 6){?>
+                <!-- manage student and student feed back load -->
+                            <li>
+                                <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-group (alias)"></i> STUDENT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                                <ul id="submenu-2" class="collapse">
+                                    <li><a href="<?php echo base_url('admin/managestudent')?>"><i class="fa fa-angle-double-right"></i> MANAGE </a></li>
+                                    <li><a href="<?php echo base_url('admin/studentfeedback')?>"><i class="fa fa-angle-double-right"></i> FEEDBACK</a></li>
+                                </ul>
+                            </li>
+               
+                    <?php }
+                    if($role_id == 1){?>
+                            <li>
+                                 <a href="<?php echo base_url('admin/manageadmin')?>"><i class="fa fa-fw fa-user-plus"></i>  MANAGE ADMINS</a>
+                            </li>
+                   <?php }?>
+                
+                
             </ul>
         </div>
         <!-- /.navbar-collapse -->

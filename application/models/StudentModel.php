@@ -34,7 +34,7 @@ class StudentModel extends CI_Model{
 
     public function get_all_notices($facultyId){
 
-        $query = $this->db->query("SELECT * FROM no_notice_all_view WHERE faculty_id = 1 OR faculty_id = 2 OR faculty_id = $facultyId");
+        $query = $this->db->query("SELECT * FROM no_notice_all_view WHERE faculty_id = 1 OR faculty_id = 2 OR faculty_id = $facultyId AND notice_status='Active'");
         $result = $query->result();
         return $result;
    

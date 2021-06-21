@@ -14,6 +14,13 @@
 </head>
 <body>
 
+<?php 
+
+$urlsegmants = $this->uri->segment_array();
+if($urlsegmants != null && $urlsegmants[1]=='admin'){
+  // admin menu gose here
+}else{
+?>
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,3 +46,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<?php } ?>
